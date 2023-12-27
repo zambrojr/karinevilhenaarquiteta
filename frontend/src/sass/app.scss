@@ -1,0 +1,40 @@
+
+// Variables
+@import "variables";
+
+// Mixins
+@import "mixins";
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
+
+// Loaders
+@import '~pure-css-loader/dist/css-loader';
+
+//font-awesome 4.7
+//@import './font-awesome/font-awesome';
+
+//@import "~font-awesome/scss/font-awesome";
+@import "./fontawesome/fontawesome.scss";
+@import "./fontawesome/solid.scss";
+
+@import "fontastic";
+
+@import 'page';
+
+@import 'layout';
+
+@import '../lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
+
+
+// Fonts
+//@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url('https://fonts.googleapis.com/css?family=Numans&display=swap');
+
+@import '~vue-cal/dist/vuecal.css';
+
+
+

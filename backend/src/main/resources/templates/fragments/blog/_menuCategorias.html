@@ -1,0 +1,8 @@
+<div class="sidebar-widget sidebar-blog-category">
+    <div class="sidebar-title">
+        <h2>Categorias</h2>
+    </div>
+    <ul class="cat-list">
+        <li th:each="categoria: ${categorias}"><a th:href="@{/blog/categoria/{id}(id=${categoria.ref_id})}" th:text="${categoria.nome}"/></li>
+    </ul>
+</div>

@@ -1,0 +1,130 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+<head>
+	
+	<!--Sidebar Page Container-->
+    <div class="sidebar-page-container" layout:fragment="content">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	
+                <!--Content Side / Blog Classic -->
+                <div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
+                	<div class="blog-classic padding-right">
+
+                		<!-- News Block Three-->
+		                <div class="news-block-three" th:each="post: ${postsBlog.content}">
+		                    <div class="inner-box">
+		                        <div class="image-box">
+		                            <figure class="image"><a th:href="@{/blog/post/{id}(id=${post.refId})}"><img src="/images/resource/news-4.jpg" alt=""></a></figure>
+		                            <span class="date" th:text="${#dates.format(post.data, 'dd MMM yyyy')}"/>
+		                        </div>
+		                        <div class="lower-content">
+		                            <div class="post-meta">
+		                            	<ul class="post-info clearfix">
+                                                    <li><a th:href="@{/blog/autor/{id}(id=${post.autor.ref_id})}">Por : <span th:text="${post.autor.getNomeCompleto()}"/></a></li>
+			                                <li><a th:href="@{/blog/categoria/{id}(id=${post.categoria.ref_id})}" th:text="${post.categoria.nome}" /></li>
+			                            </ul>
+			                        </div>
+		                            <h3><a th:href="@{/blog/post/{id}(id=${post.refId})}" th:text="${post.titulo}"/></h3>
+		                            <div class="text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur velit esse cillum Duis aute irure dolor in reprehenderit in voluptate ...</div>
+			                    <div class="link-box"><a th:href="@{/blog/post/{id}(id=${post.refId})}" class="theme-btn read-more">Continue lendo</a></div>
+		                        </div>
+		                    </div>
+		                </div>
+		                
+						
+					</div>
+					
+                    
+                                        <!--Styled Pagination-->
+                                        <ul class="styled-pagination">
+                                            <li th:if="${postsBlog.hasPrevious()}">
+                                                <a th:href="@{/blog{link}?page={id}(id=${postsBlog.number lt 2 ? 1 : postsBlog.number}, link=${link})}" aria-label="Anterior" title="Página Anterior">
+                                                    <span class="fa fa-angle-left"></span>
+                                                </a>
+                                            </li>
+                                            <li th:each="i : ${#numbers.sequence( (postsBlog.number ) > 4 ? (postsBlog.number - 3) : 1 , postsBlog.totalPages > 9 + postsBlog.number ? postsBlog.number + 9 : postsBlog.totalPages, 1)}">
+                                                <a href="#" th:if="${postsBlog.number == i-1}" class="active">[[${i}]]</a>
+                                                <a th:unless="${postsBlog.number == i-1}" th:href="@{/blog{link}?page={id}(id=${i}, link=${link})}" th:text="${i}" th:title="${'Página '+ i}"></a>
+                                            </li>
+                                            <li class="page-item disabled" th:if="${postsBlog.number + 9 < postsBlog.totalPages}">
+                                                <a href="#">
+                                                    <span class="fa fa-ellipsis-h"></span>
+                                                </a>
+                                            </li>
+                                            <li th:unless="${postsBlog.number + 1 eq postsBlog.totalPages}">
+                                                <a th:unless="${postsBlog.number + 1 eq postsBlog.totalPages}" th:href="@{/blog{link}?page={id}(id=${postsBlog.number + 2}, link=${link})}" aria-label="Próximo" title="Próxima Página">
+                                                    <span class="fa fa-angle-right"></span>
+                                                </a>
+                                            </li>
+                                        </ul>                                        
+					<!--End Styled Pagination-->
+					
+				</div>
+				
+				<!--Sidebar Side-->
+				<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
+					<aside class="sidebar">
+						
+						<!-- Search -->
+                        <div class="sidebar-widget search-box">
+                        	<form method="post" action="contact.html">
+                                <div class="form-group">
+                                    <input type="search" name="search-field" value="" placeholder="Enter Search Keywords" required>
+                                    <button type="submit"><span class="icon fa fa-search"></span></button>
+                                </div>
+                            </form>
+						</div>
+						
+                        <!--Blog Category Widget-->
+                        <section th:insert="~{fragments/blog/_menuCategorias}"></section>
+						
+						<!-- Popular Posts -->
+                        <div class="sidebar-widget popular-posts">
+                            <div class="sidebar-title"><h2>Recent News</h2></div>
+
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="blog-detail.html"><img src="/images/resource/post-thumb-1.jpg" alt=""></a></figure>
+                                <div class="text"><a href="blog-detail.html">Hanging fruit to identify a ballpark value added ...</a></div>
+                                <div class="post-info">12 April. 2019</div>
+                            </article>
+
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="blog-detail.html"><img src="/images/resource/post-thumb-2.jpg" alt=""></a></figure>
+                                <div class="text"><a href="blog-detail.html">Organically grow the holistic world view ...</a></div>
+                                <div class="post-info">12 April. 2019</div>
+                            </article>
+                            
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="blog-detail.html"><img src="/images/resource/post-thumb-3.jpg" alt=""></a></figure>
+                                <div class="text"><a href="blog-detail.html">Bring to the table in the win-win survival ...</a></div>
+                                <div class="post-info">12 April. 2019</div>
+                            </article>
+                            
+                            <article class="post">
+                            	<figure class="post-thumb"><a href="blog-detail.html"><img src="/images/resource/post-thumb-4.jpg" alt=""></a></figure>
+                                <div class="text"><a href="blog-detail.html">Override the digital divide with additional ...</a></div>
+                                <div class="post-info">12 April. 2019</div>
+                            </article>
+
+                        </div>
+						
+						<!-- Popular Tags -->
+                        <div class="sidebar-widget popular-tags">
+                            <div class="sidebar-title"><h2>Tags</h2></div>
+                            <a href="#">Interior Tips</a>
+                            <a href="#">Lighting</a>
+                            <a href="#">Designs</a>
+                            <a href="#">Vintage Look</a>
+                            <a href="#">Kitchens</a>
+                            <a href="#">Kitchens</a>
+                        </div>
+						
+					</aside>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	

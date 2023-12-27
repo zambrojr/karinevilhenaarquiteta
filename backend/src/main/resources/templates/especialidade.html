@@ -1,0 +1,69 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+    
+    
+    
+<section layout:fragment="content">
+    
+
+    
+<div>
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/galeria/paralimpico_m.jpg)">
+    <div class="auto-container">
+        <h2 th:text="${especialidade.titulo}" />
+            <ul class="page-breadcrumb">
+            <li><a href="/">home</a></li>
+	    <li><a href="/servicos">Serviços</a></li>
+            <li th:text="${especialidade.titulo}" />
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <div class="sidebar-page-container">
+            <div class="auto-container">
+                <div class="row clearfix">
+
+                    <!--Content Side / Services Detail -->
+                    <div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12">
+                        <div class="services-detail">
+                            <div class="inner-box">
+                                <div class="text">
+                                        <p th:utext="${especialidade.texto}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Sidebar Side-->
+                    <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">
+                        <aside class="sidebar">
+
+                            <!-- Sidebar Widget / List Widget-->
+                            <div class="sidebar-widget list-widget">
+                                    <!-- Services List -->
+                                    <ul class="services-list">
+                                            <li th:each="especialidade: ${listaEspecialidades}"><a th:href="'/servicos/'+${especialidade.url}" class="lkv" th:text="${especialidade.titulo}" /></li>
+                                    </ul>
+                            </div>
+
+                        </aside>
+                    </div>
+
+                </div>
+
+
+	</div>
+
+
+</div>
+
+
+
+</div>    
+    
+    
+<!-- Our team 2 end -->
+</section>        

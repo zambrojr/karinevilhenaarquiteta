@@ -1,0 +1,17 @@
+//Modifica a cor do placeholder 
+@mixin setPlaceholder($selector, $color) {
+    #{$selector}::placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    #{$selector}::-webkit-input-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    #{$selector}:-ms-input-placeholder {
+        color: $color;
+    }
+    #{$selector}::-ms-input-placeholder {
+        color: $color;
+    }
+}

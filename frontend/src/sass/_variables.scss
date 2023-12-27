@@ -1,0 +1,27 @@
+// Body
+//$body-bg: #ECF0F1;
+$primary: #337ab7;
+$warning: #f0ad4e;
+
+// Typography
+$line-height-base: 1.5;
+$link-color: $primary;
+
+$nav-height:  60px;
+
+//habilitando as sombras do bootstrap
+$enable-shadows: true;
+
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1350px
+) !default;
+
+$font-size-sm: 0.75rem;
+$custom-select-font-size-sm: 90%;
+
+$fa-font-path: "/webfonts";
+
